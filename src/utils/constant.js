@@ -2,5 +2,6 @@ exports.pagePaths = {
     root: '/',
     welcomepage: '/welcomepage',
     foodmenu: '/foodmenu',
-    thanks: '/thanks'
+    thanks: '/thanks',
+    all: '/all'
 }
