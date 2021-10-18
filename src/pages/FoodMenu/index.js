@@ -43,6 +43,22 @@ const items = [
         image: "/image/fruitsalad.jpg",
         price: '20',
     },
+    {
+        name: "burger",
+        image: "/image/burger.jpg",
+        price: '100',
+    },
+    {
+        name: "pizza",
+        image: "/image/pizza.jpg",
+        price: '150',
+    },
+    {
+        name: "RedBull",
+        image: "/image/redbull.jpg",
+        price: '120',
+
+    },
 
 ]
 
@@ -51,23 +67,32 @@ const useStyles = makeStyles(theme => ({
         margin: '64px 0 0 0',
         padding: 0,
         width: '100%',
-        // border: '1px solid',
-        display: 'flex',
-        justifyContent: 'space-around'
+
     },
+    gridItem: {
+        display: 'flex',
+        justifyContent: 'space-around',
+        padding: 0,
+        width: '100%',
+    }
+    ,
 
     card: {
         marginTop: '10px',
-        height: '350px',
-        width: '250px',
-        // border: '1px solid',
+        height: '320px',
+        width: '240px',
+        "&:hover": {
+            boxShadow: '2px 2px 10px grey'
+        }
 
     },
     media: {
-        height: '220px',
-        width: '250px',
-        margin: 'auto auto auto auto'
+        height: '200px',
+        width: '240px',
+        margin: '10px auto auto auto'
     },
+
+
     btns: {
         // border: '1px solid',
         width: '150px',
@@ -116,7 +141,7 @@ export default function FoodMenu(props) {
         })
         setCartItems(filterData)
     }
-    // console.log(cartItems);
+    //
 
 
     return (
@@ -126,31 +151,34 @@ export default function FoodMenu(props) {
                 {
                     items.map((obj) => {
                         return (
-                            <Card className={classes.card}>
-                                <CardMedia
-                                    className={classes.media}
-                                    image={obj.image} />
+                            <Grid item lg={3} md={4} sm={4} xs={12} className={classes.gridItem}>
+                                <Card className={classes.card}>
+                                    <CardMedia
+                                        className={classes.media}
+                                        image={obj.image} />
 
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    {obj.name}
-                                </Typography>
-                                <Typography variant="body2" color="textSecondary" >
-                                    Price:  {obj.price}
-                                </Typography>
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        {obj.name}
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" >
+                                        Price:  {obj.price}
+                                    </Typography>
 
-                                <Box className={classes.btns}>
-                                    <Button
-                                        size="small"
-                                        variant="contained"
-                                        color="primary"
-                                        onClick={() => add(obj)}
-                                    ><AddIcon /></Button>
-                                    <Button
-                                        size="small"
-                                        onClick={() => remove(obj)}
-                                        variant="contained"><RemoveIcon /></Button>
-                                </Box>
-                            </Card>
+                                    <Box className={classes.btns}>
+                                        <Button
+                                            size="small"
+                                            variant="contained"
+                                            color="primary"
+                                            onClick={() => add(obj)}
+                                        ><AddIcon /></Button>
+                                        <Button
+                                            size="small"
+                                            onClick={() => remove(obj)}
+                                            variant="contained"><RemoveIcon /></Button>
+                                    </Box>
+                                </Card>
+
+                            </Grid>
                         )
                     })
                 }

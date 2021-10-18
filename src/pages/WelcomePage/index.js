@@ -49,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 'bold',
         marginLeft: 'auto',
         marginRight: 'auto',
+        marginTop: '30px',
         boxShadow: '2px 2px 20px'
 
     },
